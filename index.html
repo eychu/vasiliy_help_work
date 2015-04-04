@@ -1,155 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <!-- для разработки можно использовать обычные библиотеки -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <script src="js/bootstrap.js"></script>
+  <!-- но для продакшена обязательно используй мини библиотеки, они те же по функционалу, но минимизированы по размеру -->
+  <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+  <!--<script src="js/bootstrap.min.js"></script>-->
 
-
+  <script src="js/jquery-2.1.3.js"></script>
 
 </head>
 <body>
-<h1>Привет, мир!</h1>
 
 <h2>TABLE 1</h2>
+
 <div class="container">
-    <div class="row">
-<table class="table table-hover">
-    <thead>
-    <tr>
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+      <tr>
         <th>№</th>
         <th>login</th>
         <th>type user</th>
         <th></th>
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td id="id">1</td>
-        <td id="user">admin </td>
-        <td id="type"> admin</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td id="id1">1</td>
+        <td>admin</td>
+        <td>admin</td>
         <td><input type="button" class="btn btn-info launch-show" value="Edit"></td>
-    </tr>
-    <tr>
-        <td id="id">2</td>
-        <td id="user">user </td>
-        <td id="type"> user</td>
+      </tr>
+      <tr>
+        <td id="id2">2</td>
+        <td>user</td>
+        <td>user</td>
         <td><input type="button" class="btn btn-info launch-show" value="Edit"></td>
-    </tr>
+      </tr>
 
-    <tr>
-        <td id="id">3</td>
-        <td id="user">u1 </td>
-        <td id="type"> user</td>
+      <tr>
+        <td id="id3">3</td>
+        <td>u1</td>
+        <td>user</td>
         <td><input type="button" class="btn btn-info launch-show" value="Edit"></td>
-    </tr>
+      </tr>
 
-    <tr>
-        <td id="id"></td>
-        <td id="user"></td>
-        <td id="type"></td>
+      <tr>
+        <td id="id4">4</td>
+        <td>use44r</td>
+        <td>data33</td>
         <td><input type="button" class="btn btn-info launch-show" value="Add user"></td>
-    </tr>
+      </tr>
 
-    </tbody>
-</table>
-        </div>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 <!-- HTML код кнопки (для отображения модального окна) -->
 <!--<input type="button" class="btn btn-info launch-show" value="Edit">-->
 
 
-
-
 <!-- HTML код модального окна-->
 <div id="myModalShow" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Edit user</h4>
-            </div>
-            <div class="modal-body">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Edit user</h4>
+      </div>
+      <div class="modal-body">
 
-                <div class="container">
-                    <div class="row">
-                        <div>Login</div><p><input type="text" name="login" id="login" value="" placeholder="Login"></p>
-                        <div>Type user</div><p><select id="tclip" name="tclip"><option value="admin" selected>admin</option><option value="user">user</option></select></p>
-                        <div>Password</div><p><input type="text" name="Password" id="Password" value="" placeholder="Password"></p>
-                        <div>Re-password</div><p><input type="text" name="Password" id="Password" value="" placeholder="Re-password"></p>
+        <div class="container">
+          <div class="row">
+            <form>
+              <div>Login</div>
+              <input type="hidden" id="form_id" value="">
 
-                    </div>
-                </div>
+              <p><input type="text" name="form_login" id="form_login" value="" placeholder="Login"></p>
 
-            </div>
-            <div class="modal-footer">
+              <div>Type user</div>
+              <p>
+                <select id="form_tclip" name="form_tclip">
+                  <option value="admin" selected>admin</option>
+                  <option value="user">user</option>
+                </select></p>
+              <div>Password</div>
+              <p><input type="text" name="Password" id="pass" value="" placeholder="Password"/></p>
 
+              <div>Re-password</div>
+              <p><input type="text" name="PasswordConfirm" id="pass_confirm" value="" placeholder="Re-password"/></p>
 
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="user_delete">Удалить</button>
-                <script>
-                    $('#user_delete').click(function(){
-                        alert('click close');
-                    })
-                </script>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Сохранить</button>
-            </div>
+            </form>
+
+          </div>
         </div>
+
+      </div>
+      <div class="modal-footer">
+
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="user_delete">Удалить</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Сохранить</button>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
 <h2>TABLE 2</h2>
 <table class="table table-hover">
-    <thead>
-    <tr>
-        <th>№ п/п</th>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>E-mail</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>1</td>
-        <td>Иван</td>
-        <td>Чмель</td>
-        <td>ivan@mail.ru</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Петр</td>
-        <td>Щербаков</td>
-        <td>petr@mail.ru</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Юрий</td>
-        <td>Голов</td>
-        <td>yuri@mail.ru</td>
-    </tr>
-    </tbody>
+  <thead>
+  <tr>
+    <th>№ п/п</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>E-mail</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="clickable">
+    <td>1</td>
+    <td>Иван</td>
+    <td>Чмель</td>
+    <td>ivan@mail.ru</td>
+  </tr>
+  <tr class="clickable">
+    <td>2</td>
+    <td>Петр</td>
+    <td>Щербаков</td>
+    <td>petr@mail.ru</td>
+  </tr>
+  <tr class="clickable">
+    <td>3</td>
+    <td>Юрий</td>
+    <td>Голов</td>
+    <td>yuri@mail.ru</td>
+  </tr>
+  </tbody>
 </table>
 
 
-
-<script src="js/jquery-2.1.3.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.js"></script>
 <script type="text/javascript">
 
-        $('.launch-show').click(function(){
+  // модальное окно
+  $('.launch-show').click(function(e) {
+    // выдирает данные из строки
+    var row = $($(e.target).parent().prevAll().get().reverse()).contents();
+    // устанавливаем данные в форму
+    $('#form_id').val(row[0].data);
+    $('#form_login').val(row[1].data);
+    $("#form_tclip [value='" + row[2].data + "']").attr("selected", "selected");
+    // показываем модальное окно
+    $('#myModalShow').modal('show');
+  });
 
-            $('#myModalShow').modal('show');
-        });
+  // кнопка удаления в модальном окне
+  $('#user_delete').click(function(e) {
+    var id = $('#form_id').val();
+    alert('надо удалить запись с идентификатором - ' + id);
+  });
 
-
+  // клик на таблицу 2
+  $("tr.clickable").click(function(e) {
+    var row = $(e.currentTarget).children().contents().get();
+    alert('вы кликнули на пользователя - '+row[2].data)
+  });
 
 </script>
 
